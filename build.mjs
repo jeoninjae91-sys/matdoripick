@@ -5,6 +5,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { execFileSync } from 'node:child_process';
 import { lineup } from '../episodes.mjs';
+import { singles } from '../singles.mjs';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const root = path.join(here, '..');
@@ -12,6 +13,12 @@ const SCHEDULE = {
   3: ['2026-11-16', 'eAawlJUrzTY'], 2: ['2026-11-17', 'OyIMaW7NRLo'], 4: ['2026-11-18', 'ALXY29nKp6w'],
   1: ['2026-11-19', 'VdjwVOM2urc'], 6: ['2026-11-20', 'iwC2_vFRS2c'], 5: ['2026-11-21', '53KEh0mbDnI'],
   7: ['2026-11-22', 'vFgZ0PnvnSU'],
+};
+// 단일 상품 편: 편 번호 → [공개일, 공개 시각, 영상 ID(올린 뒤 채움, 없으면 null)]
+const SINGLE_SCHEDULE = {
+  1: ['2026-11-19', '12:00', 'hfFEHyW_Zw8'], 2: ['2026-11-20', '12:00', 'BYSeRMQ9gcs'], 3: ['2026-11-21', '12:00', 'BVogtYARHms'],
+  4: ['2026-11-22', '12:00', 'BtnOBv7Qa7w'], 5: ['2026-11-23', '12:00', '2Ezf7hszCh0'], 7: ['2026-11-24', '12:00', 'ysvNcgxU9fE'],
+  // 6(삼립호빵)은 쿠팡 일시품절로 보류
 };
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 const won = (n) => n.toLocaleString('ko-KR') + '원';
@@ -31,13 +38,23 @@ const eps = lineup.filter((e) => SCHEDULE[e.n]).map((e) => {
     }
     return { ...p, img: out };
   });
-  return { n: e.n, title: e.title, date, vid, priceDate: e.priceDate, products };
-}).sort((a, b) => (a.date < b.date ? 1 : -1));
+  return { n: e.n, title: e.title, date, time: '19:00', vid, priceDate: e.priceDate, products };
+}).concat(singles.filter((e) => SINGLE_SCHEDULE[e.n]).map((e) => {
+  const [date, time, vid] = SINGLE_SCHEDULE[e.n];
+  const out = `img/s${String(e.n).padStart(2, '0')}.jpg`;
+  const dst = path.join(here, out);
+  if (!fs.existsSync(dst)) {
+    execFileSync('ffmpeg', ['-y', '-v', 'error', '-f', 'lavfi', '-i', 'color=white:s=360x360', '-i', path.join(root, e.slug, e.pack.split('@')[0]),
+      '-filter_complex', '[1:v]scale=360:360:force_original_aspect_ratio=decrease[p];[0:v][p]overlay=(W-w)/2:(H-h)/2:format=auto,format=yuvj420p',
+      '-frames:v', '1', '-q:v', '4', dst]);
+  }
+  return { n: 100 + e.n, title: e.title, date, time, vid, priceDate: '11/18', products: [{ ...e.product, img: out }] };
+})).sort((a, b) => (a.date + a.time < b.date + b.time ? 1 : -1));
 
 const sections = eps.map((e) => `
-<section class="ep" data-pub="${e.date}T19:00:00+09:00">
+<section class="ep" data-pub="${e.date}T${e.time}:00+09:00">
   <h2>${esc(e.title)}</h2>
-  <p class="meta">${Number(e.date.slice(5, 7))}월 ${Number(e.date.slice(8))}일 영상 · <a href="https://youtube.com/shorts/${e.vid}">영상 다시 보기</a></p>
+  <p class="meta">${Number(e.date.slice(5, 7))}월 ${Number(e.date.slice(8))}일 영상${e.vid ? ` · <a href="https://youtube.com/shorts/${e.vid}">영상 다시 보기</a>` : ''}</p>
   <ol>${e.products.map((p) => `
     <li><a class="card" href="${p.link}" target="_blank" rel="sponsored nofollow noopener">
       <img src="${p.img}" alt="${esc(p.short)}" width="96" height="96" loading="lazy">
