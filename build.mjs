@@ -20,6 +20,12 @@ const SINGLE_SCHEDULE = {
   4: ['2026-11-22', '12:00', 'BtnOBv7Qa7w'], 5: ['2026-11-23', '12:00', '2Ezf7hszCh0'], 7: ['2026-11-24', '12:00', 'ysvNcgxU9fE'],
   // 6(삼립호빵)은 쿠팡 일시품절로 보류
 };
+// 대결 A(제철 단일 편, 원본은 대결/A/aNN-…): 유튜브에 올린 뒤 한 줄씩 추가. src는 음식채널 폴더 기준 사진 경로.
+const EXTRA = [
+  { n: 201, id: 'a01', title: '요즘 식품 검색 2위, 겨울 별미', date: '2026-11-23', time: '19:00', vid: 'lWYMob97O44', priceDate: '11/19',
+    src: '../../대결/A/a01-gwamegi/real/p1/1.jpg',
+    product: { short: '구룡포 햇과메기 세트', name: '구룡포 햇과메기 야채세트, 270g, 1팩', price: 27900, link: 'https://link.coupang.com/a/iMCBAvh8Ng' } },
+];
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 const won = (n) => n.toLocaleString('ko-KR') + '원';
 
@@ -49,6 +55,15 @@ const eps = lineup.filter((e) => SCHEDULE[e.n]).map((e) => {
       '-frames:v', '1', '-q:v', '4', dst]);
   }
   return { n: 100 + e.n, title: e.title, date, time, vid, priceDate: '11/18', products: [{ ...e.product, img: out }] };
+})).concat(EXTRA.map((e) => {
+  const out = `img/${e.id}.jpg`;
+  const dst = path.join(here, out);
+  if (!fs.existsSync(dst)) {
+    execFileSync('ffmpeg', ['-y', '-v', 'error', '-f', 'lavfi', '-i', 'color=white:s=360x360', '-i', path.join(root, e.src),
+      '-filter_complex', '[1:v]scale=360:360:force_original_aspect_ratio=decrease[p];[0:v][p]overlay=(W-w)/2:(H-h)/2:format=auto,format=yuvj420p',
+      '-frames:v', '1', '-q:v', '4', dst]);
+  }
+  return { n: e.n, title: e.title, date: e.date, time: e.time, vid: e.vid, priceDate: e.priceDate, products: [{ ...e.product, img: out }] };
 })).sort((a, b) => (a.date + a.time < b.date + b.time ? 1 : -1));
 
 const sections = eps.map((e) => `
