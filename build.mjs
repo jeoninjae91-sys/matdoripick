@@ -22,10 +22,10 @@ const SINGLE_SCHEDULE = {
 };
 // 대결 A(제철 단일 편, 원본은 대결/A/aNN-…): 유튜브에 올린 뒤 한 줄씩 추가. src는 음식채널 폴더 기준 사진 경로.
 const EXTRA = [
-  { n: 201, id: 'a01', title: '요즘 식품 검색 2위, 겨울 별미', date: '2026-11-23', time: '19:00', vid: 'lWYMob97O44', priceDate: '11/19',
+  { n: 201, id: 'a01', title: '요즘 식품 검색 2위, 겨울 별미', date: '2026-11-19', time: '21:00', vid: 'lWYMob97O44', priceDate: '11/19',
     src: '../../대결/A/a01-gwamegi/real/p1/1.jpg',
     product: { short: '구룡포 햇과메기 세트', name: '구룡포 햇과메기 야채세트, 270g, 1팩', price: 27900, link: 'https://link.coupang.com/a/iMCBAvh8Ng' } },
-  { n: 203, id: 'a03', title: '김장 대신 호텔 김치 4kg', date: '2026-11-24', time: '19:00', vid: 'MflhQdas-JA', priceDate: '11/19',
+  { n: 203, id: 'a03', title: '김장 대신 호텔 김치 4kg', date: '2026-11-20', time: '08:00', vid: 'MflhQdas-JA', priceDate: '11/19',
     src: '../../대결/A/a03-kimchi/real/p1/1.jpg',
     product: { short: '조선호텔 포기김치', name: '조선호텔 포기김치 프레시, 4kg, 1개', price: 36920, link: 'https://link.coupang.com/a/iMDiI5wRa0' } },
 ];
