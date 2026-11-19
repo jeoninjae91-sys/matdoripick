@@ -28,6 +28,12 @@ const EXTRA = [
   { n: 203, id: 'a03', title: '김장 대신 호텔 김치 4kg', date: '2026-11-20', time: '08:00', vid: 'MflhQdas-JA', priceDate: '11/19',
     src: '../../대결/A/a03-kimchi/real/p1/1.jpg',
     product: { short: '조선호텔 포기김치', name: '조선호텔 포기김치 프레시, 4kg, 1개', price: 36920, link: 'https://link.coupang.com/a/iMDiI5wRa0' } },
+  { n: 206, id: 'a06', title: '한 개 천 원도 안 하는 대봉시', date: '2026-11-20', time: '21:00', vid: 'wAmwtQPCoPA', priceDate: '11/20',
+    src: '../../대결/A/a06-persimmon/real/p1/1.jpg',
+    product: { short: '새벽경매 대봉시 5kg', name: '새벽경매 후숙하면 정말 맛있는 대봉시, 5kg(15~18입), 1개', price: 12900, link: 'https://link.coupang.com/a/iMFoqV9LZk' } },
+  { n: 204, id: 'a04', title: '2kg에 만 원대, 제철 홍가리비', date: '2026-11-21', time: '08:00', vid: 'Dt_huldAcDo', priceDate: '11/20',
+    src: '../../대결/A/a04-scallop/real/p1/2.jpg',
+    product: { short: '남해안 홍가리비', name: '남해안 산지직송 생물 홍가리비 (냉장), 2kg, 1개', price: 10790, link: 'https://link.coupang.com/a/iMDkmMZUTA' } },
 ];
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 const won = (n) => n.toLocaleString('ko-KR') + '원';
