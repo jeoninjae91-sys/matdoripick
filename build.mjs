@@ -34,6 +34,12 @@ const EXTRA = [
   { n: 204, id: 'a04', title: '2kg에 만 원대, 제철 홍가리비', date: '2026-11-20', time: '22:00', vid: 'Dt_huldAcDo', priceDate: '11/20',
     src: '../../대결/A/a04-scallop/real/p1/2.jpg',
     product: { short: '남해안 홍가리비', name: '남해안 산지직송 생물 홍가리비 (냉장), 2kg, 1개', price: 10790, link: 'https://link.coupang.com/a/iMDkmMZUTA' } },
+  { n: 207, id: 'a07', title: '밥도둑 곱창돌김 50장', date: '2026-11-21', time: '21:00', vid: 'z16160w9zWc', priceDate: '11/21',
+    src: '../../대결/A/a07-gim/real/p1/2.jpg',
+    product: { short: '곱창돌김 50장', name: '곱창돌김, 2.6g, 50개입, 1개', price: 19070, link: 'https://link.coupang.com/a/iMFlfojkgS' } },
+  { n: 208, id: 'a08', title: '한 개 2천 원, 아이스 군고구마', date: '2026-11-21', time: '22:00', vid: 'kiggNnNzU-A', priceDate: '11/21',
+    src: '../../대결/A/a08-goguma/real/p1/2.jpg',
+    product: { short: '아이스 군고구마 8개', name: '고구마공장 아이스 군고구마 (냉동), 120g, 8개', price: 16200, link: 'https://link.coupang.com/a/iN88edg4xo' } },
 ];
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 const won = (n) => n.toLocaleString('ko-KR') + '원';
