@@ -339,4 +339,12 @@ footer{margin-top:32px;font-size:12px;color:var(--sub)}
 // 아직 공개 전인 영상의 상품은 숨긴다
 for (const s of document.querySelectorAll('.ep')) if (new Date(s.dataset.pub) > new Date()) s.hidden = true;
 </script>
+<script>
+// 방문·쿠팡 버튼 클릭 수 세기 (링크통계 Worker, 개인 정보 저장 없음)
+(()=>{const E='https://linkstats.oneul-mwo-ipji-weather.workers.dev/hit?s=matdoripick';
+const b=(t,k)=>{const u=E+'&t='+t+'&k='+encodeURIComponent(k);try{navigator.sendBeacon(u)}catch(e){fetch(u,{mode:'no-cors',keepalive:true})}};
+const p=new URLSearchParams(location.search).get('from');let r='direct';try{if(document.referrer)r=new URL(document.referrer).hostname}catch(e){}
+b('view',p?'from:'+p:r);
+document.addEventListener('click',e=>{const a=e.target.closest('a.card');if(a)b('click',(a.querySelector('b')||a).textContent.trim())});})();
+</script>
 </body></html>
