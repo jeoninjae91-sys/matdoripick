@@ -40,6 +40,9 @@ const EXTRA = [
   { n: 208, id: 'a08', title: '한 개 2천 원, 아이스 군고구마', date: '2026-11-21', time: '22:00', vid: 'kiggNnNzU-A', priceDate: '11/21',
     src: '../../대결/A/a08-goguma/real/p1/2.jpg',
     product: { short: '아이스 군고구마 8개', name: '고구마공장 아이스 군고구마 (냉동), 120g, 8개', price: 16200, link: 'https://link.coupang.com/a/iN88edg4xo' } },
+  { n: 209, id: 'a09', title: '2kg에 12,990원, 제주 감귤', date: '2026-11-22', time: '21:00', vid: '7g960MdBtp4', priceDate: '11/22',
+    src: '../../대결/A/a09-gyul/real/p1/1.jpg',
+    product: { short: '올레길 감귤 2kg', name: '올레길 AI 당도선별 11brix 감귤, 2kg(로열과), 1개', price: 12990, link: 'https://link.coupang.com/a/iQ0HiBuXqn' } },
 ];
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 const won = (n) => n.toLocaleString('ko-KR') + '원';
