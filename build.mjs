@@ -43,6 +43,9 @@ const EXTRA = [
   { n: 209, id: 'a09', title: '2kg에 12,990원, 제주 감귤', date: '2026-11-22', time: '21:00', vid: '7g960MdBtp4', priceDate: '11/22',
     src: '../../대결/A/a09-gyul/real/p1/1.jpg',
     product: { short: '올레길 감귤 2kg', name: '올레길 AI 당도선별 11brix 감귤, 2kg(로열과), 1개', price: 12990, link: 'https://link.coupang.com/a/iQ0HiBuXqn' } },
+  { n: 211, id: 'a11', title: '과메기 세트 2천 원 내렸어요', date: '2026-11-22', time: '22:00', vid: '-d9K3Mzbqi8', priceDate: '11/22 와우할인',
+    src: '../../대결/A/a11-gwamegi2/real/p1/1.jpg',
+    product: { short: '구룡포 햇과메기 세트', name: '구룡포 햇과메기 야채세트, 270g, 1팩', price: 25900, link: 'https://link.coupang.com/a/iMCBAvh8Ng' } },
 ];
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 const won = (n) => n.toLocaleString('ko-KR') + '원';
