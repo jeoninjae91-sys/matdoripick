@@ -31,22 +31,26 @@ const EXTRA = [
   { n: 206, id: 'a06', title: '한 개 천 원도 안 하는 대봉시', date: '2026-11-20', time: '21:00', vid: 'wAmwtQPCoPA', priceDate: '11/20',
     src: '../../대결/A/a06-persimmon/real/p1/1.jpg',
     product: { short: '새벽경매 대봉시 5kg', name: '새벽경매 후숙하면 정말 맛있는 대봉시, 5kg(15~18입), 1개', price: 12900, link: 'https://link.coupang.com/a/iMFoqV9LZk' } },
-  { n: 204, id: 'a04', title: '2kg에 만 원대, 제철 홍가리비', date: '2026-11-20', time: '22:00', vid: 'Dt_huldAcDo', priceDate: '11/20',
+  { n: 204, id: 'a04', title: '2kg에 만 원대, 제철 홍가리비', date: '2026-11-20', time: '22:00', vid: 'Dt_huldAcDo', priceDate: '11/23',
     src: '../../대결/A/a04-scallop/real/p1/2.jpg',
-    product: { short: '남해안 홍가리비', name: '남해안 산지직송 생물 홍가리비 (냉장), 2kg, 1개', price: 10790, link: 'https://link.coupang.com/a/iMDkmMZUTA' } },
-  { n: 207, id: 'a07', title: '밥도둑 곱창돌김 50장', date: '2026-11-21', time: '21:00', vid: 'z16160w9zWc', priceDate: '11/21',
+    product: { short: '남해안 홍가리비', name: '남해안 산지직송 생물 홍가리비 (냉장), 2kg, 1개', price: 11400, link: 'https://link.coupang.com/a/iMDkmMZUTA' } },
+  { n: 207, id: 'a07', title: '밥도둑 곱창돌김 50장', date: '2026-11-21', time: '21:00', vid: 'z16160w9zWc', priceDate: '11/23',
     src: '../../대결/A/a07-gim/real/p1/2.jpg',
-    product: { short: '곱창돌김 50장', name: '곱창돌김, 2.6g, 50개입, 1개', price: 19070, link: 'https://link.coupang.com/a/iMFlfojkgS' } },
+    product: { short: '곱창돌김 50장', name: '곱창돌김, 2.6g, 50개입, 1개', price: 18070, link: 'https://link.coupang.com/a/iMFlfojkgS' } },
   { n: 208, id: 'a08', title: '한 개 2천 원, 아이스 군고구마', date: '2026-11-21', time: '22:00', vid: 'kiggNnNzU-A', priceDate: '11/21',
     src: '../../대결/A/a08-goguma/real/p1/2.jpg',
     product: { short: '아이스 군고구마 8개', name: '고구마공장 아이스 군고구마 (냉동), 120g, 8개', price: 16200, link: 'https://link.coupang.com/a/iN88edg4xo' } },
   { n: 209, id: 'a09', title: '2kg에 12,990원, 제주 감귤', date: '2026-11-22', time: '21:00', vid: '7g960MdBtp4', priceDate: '11/22',
     src: '../../대결/A/a09-gyul/real/p1/1.jpg',
     product: { short: '올레길 감귤 2kg', name: '올레길 AI 당도선별 11brix 감귤, 2kg(로열과), 1개', price: 12990, link: 'https://link.coupang.com/a/iQ0HiBuXqn' } },
-  { n: 211, id: 'a11', title: '과메기 세트 2천 원 내렸어요', date: '2026-11-22', time: '22:00', vid: '-d9K3Mzbqi8', priceDate: '11/22 와우할인',
-    src: '../../대결/A/a11-gwamegi2/real/p1/1.jpg',
-    product: { short: '구룡포 햇과메기 세트', name: '구룡포 햇과메기 야채세트, 270g, 1팩', price: 25900, link: 'https://link.coupang.com/a/iMCBAvh8Ng' } },
 ];
+// 오늘 가격표: 영상 "쿠팡 제철 먹거리 4가지"가 안내하는 곳. 가격을 다시 확인하면 date와 price만 고친다.
+const TODAY = { date: '11월 23일', items: [
+  { short: '제주 감귤 2kg', name: '올레길 AI 당도선별 11brix 감귤, 2kg(로열과), 1개', price: 12990, link: 'https://link.coupang.com/a/iQ0HiBuXqn', img: 'img/a09.jpg' },
+  { short: '대봉시 5kg', name: '새벽경매 후숙하면 정말 맛있는 대봉시, 5kg(15~18입), 1개', price: 12900, link: 'https://link.coupang.com/a/iMFoqV9LZk', img: 'img/a06.jpg' },
+  { short: '곱창돌김 50장', name: '곱창돌김, 2.6g, 50개입, 1개', price: 18070, link: 'https://link.coupang.com/a/iMFlfojkgS', img: 'img/a07.jpg' },
+  { short: '아이스 군고구마 8개', name: '고구마공장 아이스 군고구마 (냉동), 120g, 8개', price: 16200, link: 'https://link.coupang.com/a/iN88edg4xo', img: 'img/a08.jpg' },
+] };
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 const won = (n) => n.toLocaleString('ko-KR') + '원';
 
@@ -125,6 +129,17 @@ footer{margin-top:32px;font-size:12px;color:var(--sub)}
 <h1>맛도리픽</h1>
 <p class="lead">영상에 나온 상품을 여기서 바로 확인하세요.</p>
 <p class="notice">이 페이지는 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다. 가격은 표시된 날짜에 확인한 것이며 바뀔 수 있습니다.</p>
+<section class="ep">
+  <h2>오늘 가격표 · 제철 먹거리 4가지</h2>
+  <p class="meta">${TODAY.date}에 쿠팡 판매 페이지에서 확인한 가격입니다. 가격은 매일 바뀔 수 있어요.</p>
+  <ol>${TODAY.items.map((p) => `
+    <li><a class="card" href="${p.link}" target="_blank" rel="sponsored nofollow noopener">
+      <img src="${p.img}" alt="${esc(p.short)}" width="96" height="96" loading="lazy">
+      <span class="txt"><b>${esc(p.short)}</b><small>${esc(p.name)}</small>
+      <span class="price">${won(p.price)} <i>${TODAY.date} 확인</i></span></span>
+      <span class="go">쿠팡에서 보기</span></a></li>`).join('')}
+  </ol>
+</section>
 ${sections}
 <footer>상품 사진 출처: 쿠팡 판매 페이지 · 유튜브 <a href="https://www.youtube.com/@today.matdoripick" style="color:inherit">@today.matdoripick</a></footer>
 </main>
