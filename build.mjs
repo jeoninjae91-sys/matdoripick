@@ -49,6 +49,7 @@ const TODAY = { date: '11월 23일', items: [
   { short: '제주 감귤 2kg', name: '올레길 AI 당도선별 11brix 감귤, 2kg(로열과), 1개', price: 12990, link: 'https://link.coupang.com/a/iQ0HiBuXqn', img: 'img/a09.jpg' },
   { short: '대봉시 5kg', name: '새벽경매 후숙하면 정말 맛있는 대봉시, 5kg(15~18입), 1개', price: 12900, link: 'https://link.coupang.com/a/iMFoqV9LZk', img: 'img/a06.jpg' },
   { short: '곱창돌김 50장', name: '곱창돌김, 2.6g, 50개입, 1개', price: 18070, link: 'https://link.coupang.com/a/iMFlfojkgS', img: 'img/a07.jpg' },
+  { short: '설향 딸기 500g', name: '설향 딸기 중과, 500g, 1개', price: 16020, link: 'https://link.coupang.com/a/iQ0JtVKM2L', img: 'img/a10.jpg' },
   { short: '아이스 군고구마 8개', name: '고구마공장 아이스 군고구마 (냉동), 120g, 8개', price: 16200, link: 'https://link.coupang.com/a/iN88edg4xo', img: 'img/a08.jpg' },
 ] };
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
@@ -130,7 +131,7 @@ footer{margin-top:32px;font-size:12px;color:var(--sub)}
 <p class="lead">영상에 나온 상품을 여기서 바로 확인하세요.</p>
 <p class="notice">이 페이지는 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다. 가격은 표시된 날짜에 확인한 것이며 바뀔 수 있습니다.</p>
 <section class="ep">
-  <h2>오늘 가격표 · 제철 먹거리 4가지</h2>
+  <h2>오늘 가격표 · 제철 먹거리</h2>
   <p class="meta">${TODAY.date}에 쿠팡 판매 페이지에서 확인한 가격입니다. 가격은 매일 바뀔 수 있어요.</p>
   <ol>${TODAY.items.map((p) => `
     <li><a class="card" href="${p.link}" target="_blank" rel="sponsored nofollow noopener">
