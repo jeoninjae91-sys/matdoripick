@@ -19,36 +19,42 @@ ol{list-style:none;margin:0;padding:0;display:grid;gap:10px}
 .price{font-weight:700;font-variant-numeric:tabular-nums}.price i{font-style:normal;font-weight:400;font-size:12px;color:var(--sub)}
 .go{justify-self:start;background:var(--acc);color:#fff;font-size:14px;font-weight:700;border-radius:999px;padding:6px 14px}
 footer{margin-top:32px;font-size:12px;color:var(--sub)}
+/* 11/24: 첫 화면에 큰 사진과 버튼이 바로 보이게 (위쪽 제목·안내문을 줄이고 가격표를 2열 큰 카드로) */
+.notice.top{font-size:11px;padding:6px 10px;margin:0 0 6px}
+h2.first{font-size:22px;margin:6px 0 2px}
+ol.grid{grid-template-columns:1fr 1fr}
+.card.big{grid-template-columns:1fr;gap:6px;padding:8px;height:100%}
+.card.big img{grid-row:auto;width:100%;height:auto;aspect-ratio:1/1;object-fit:cover}
+.card.big .txt small{display:none}
+.card.big .go{justify-self:stretch;text-align:center}
 </style></head><body><main>
-<h1>맛도리픽</h1>
-<p class="lead">영상에 나온 상품을 여기서 바로 확인하세요.</p>
-<p class="notice">이 페이지는 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다. 가격은 표시된 날짜에 확인한 것이며 바뀔 수 있습니다.</p>
+<p class="notice top">이 페이지는 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다.</p>
 <section class="ep">
-  <h2>오늘 가격표 · 제철 먹거리</h2>
+  <h2 class="first">맛도리픽 · 오늘 가격표</h2>
   <p class="meta">11월 23일에 쿠팡 판매 페이지에서 확인한 가격입니다. 가격은 매일 바뀔 수 있어요.</p>
-  <ol>
-    <li><a class="card" href="https://link.coupang.com/a/iQ0HiBuXqn" target="_blank" rel="sponsored nofollow noopener">
-      <img src="img/a09.jpg" alt="제주 감귤 2kg" width="96" height="96" loading="lazy">
+  <ol class="grid">
+    <li><a class="card big" href="https://link.coupang.com/a/iQ0HiBuXqn" target="_blank" rel="sponsored nofollow noopener">
+      <img src="img/a09.jpg" alt="제주 감귤 2kg" width="360" height="360">
       <span class="txt"><b>제주 감귤 2kg</b><small>올레길 AI 당도선별 11brix 감귤, 2kg(로열과), 1개</small>
       <span class="price">12,990원 <i>11월 23일 확인</i></span></span>
       <span class="go">쿠팡에서 보기</span></a></li>
-    <li><a class="card" href="https://link.coupang.com/a/iMFoqV9LZk" target="_blank" rel="sponsored nofollow noopener">
-      <img src="img/a06.jpg" alt="대봉시 5kg" width="96" height="96" loading="lazy">
+    <li><a class="card big" href="https://link.coupang.com/a/iMFoqV9LZk" target="_blank" rel="sponsored nofollow noopener">
+      <img src="img/a06.jpg" alt="대봉시 5kg" width="360" height="360">
       <span class="txt"><b>대봉시 5kg</b><small>새벽경매 후숙하면 정말 맛있는 대봉시, 5kg(15~18입), 1개</small>
       <span class="price">12,900원 <i>11월 23일 확인</i></span></span>
       <span class="go">쿠팡에서 보기</span></a></li>
-    <li><a class="card" href="https://link.coupang.com/a/iMFlfojkgS" target="_blank" rel="sponsored nofollow noopener">
-      <img src="img/a07.jpg" alt="곱창돌김 50장" width="96" height="96" loading="lazy">
+    <li><a class="card big" href="https://link.coupang.com/a/iMFlfojkgS" target="_blank" rel="sponsored nofollow noopener">
+      <img src="img/a07.jpg" alt="곱창돌김 50장" width="360" height="360">
       <span class="txt"><b>곱창돌김 50장</b><small>곱창돌김, 2.6g, 50개입, 1개</small>
       <span class="price">18,070원 <i>11월 23일 확인</i></span></span>
       <span class="go">쿠팡에서 보기</span></a></li>
-    <li><a class="card" href="https://link.coupang.com/a/iQ0JtVKM2L" target="_blank" rel="sponsored nofollow noopener">
-      <img src="img/a10.jpg" alt="설향 딸기 500g" width="96" height="96" loading="lazy">
+    <li><a class="card big" href="https://link.coupang.com/a/iQ0JtVKM2L" target="_blank" rel="sponsored nofollow noopener">
+      <img src="img/a10.jpg" alt="설향 딸기 500g" width="360" height="360">
       <span class="txt"><b>설향 딸기 500g</b><small>설향 딸기 중과, 500g, 1개</small>
       <span class="price">16,020원 <i>11월 23일 확인</i></span></span>
       <span class="go">쿠팡에서 보기</span></a></li>
-    <li><a class="card" href="https://link.coupang.com/a/iN88edg4xo" target="_blank" rel="sponsored nofollow noopener">
-      <img src="img/a08.jpg" alt="아이스 군고구마 8개" width="96" height="96" loading="lazy">
+    <li><a class="card big" href="https://link.coupang.com/a/iN88edg4xo" target="_blank" rel="sponsored nofollow noopener">
+      <img src="img/a08.jpg" alt="아이스 군고구마 8개" width="360" height="360">
       <span class="txt"><b>아이스 군고구마 8개</b><small>고구마공장 아이스 군고구마 (냉동), 120g, 8개</small>
       <span class="price">16,200원 <i>11월 23일 확인</i></span></span>
       <span class="go">쿠팡에서 보기</span></a></li>

@@ -126,16 +126,22 @@ ol{list-style:none;margin:0;padding:0;display:grid;gap:10px}
 .price{font-weight:700;font-variant-numeric:tabular-nums}.price i{font-style:normal;font-weight:400;font-size:12px;color:var(--sub)}
 .go{justify-self:start;background:var(--acc);color:#fff;font-size:14px;font-weight:700;border-radius:999px;padding:6px 14px}
 footer{margin-top:32px;font-size:12px;color:var(--sub)}
+/* 11/24: 첫 화면에 큰 사진과 버튼이 바로 보이게 (위쪽 제목·안내문을 줄이고 가격표를 2열 큰 카드로) */
+.notice.top{font-size:11px;padding:6px 10px;margin:0 0 6px}
+h2.first{font-size:22px;margin:6px 0 2px}
+ol.grid{grid-template-columns:1fr 1fr}
+.card.big{grid-template-columns:1fr;gap:6px;padding:8px;height:100%}
+.card.big img{grid-row:auto;width:100%;height:auto;aspect-ratio:1/1;object-fit:cover}
+.card.big .txt small{display:none}
+.card.big .go{justify-self:stretch;text-align:center}
 </style></head><body><main>
-<h1>맛도리픽</h1>
-<p class="lead">영상에 나온 상품을 여기서 바로 확인하세요.</p>
-<p class="notice">이 페이지는 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다. 가격은 표시된 날짜에 확인한 것이며 바뀔 수 있습니다.</p>
+<p class="notice top">이 페이지는 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다.</p>
 <section class="ep">
-  <h2>오늘 가격표 · 제철 먹거리</h2>
+  <h2 class="first">맛도리픽 · 오늘 가격표</h2>
   <p class="meta">${TODAY.date}에 쿠팡 판매 페이지에서 확인한 가격입니다. 가격은 매일 바뀔 수 있어요.</p>
-  <ol>${TODAY.items.map((p) => `
-    <li><a class="card" href="${p.link}" target="_blank" rel="sponsored nofollow noopener">
-      <img src="${p.img}" alt="${esc(p.short)}" width="96" height="96" loading="lazy">
+  <ol class="grid">${TODAY.items.map((p) => `
+    <li><a class="card big" href="${p.link}" target="_blank" rel="sponsored nofollow noopener">
+      <img src="${p.img}" alt="${esc(p.short)}" width="360" height="360">
       <span class="txt"><b>${esc(p.short)}</b><small>${esc(p.name)}</small>
       <span class="price">${won(p.price)} <i>${TODAY.date} 확인</i></span></span>
       <span class="go">쿠팡에서 보기</span></a></li>`).join('')}
